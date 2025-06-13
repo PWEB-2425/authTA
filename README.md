@@ -8,7 +8,7 @@
 ## Atencao
 
 - tem que existir uma BD mongo
-- tem que fazer um ficheiro `.env``
+- tem que existir um ficheiro `.env``
 
 '''.env
 SECRET = "12345"
