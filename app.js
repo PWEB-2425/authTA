@@ -3,6 +3,7 @@ const session = require("express-session");
 const dotenv = require('dotenv');
 const { MongoClient, ObjectId } = require('mongodb');
 
+// parse do ficheiro ".env" 
 dotenv.config();
 
 console.log(process.env.SECRET);
