@@ -20,7 +20,6 @@ app.post('/login', async (req, res) => {
     const password = req.body.password;
     console.log(username);
     console.log(password);
-
     const user = await usersCollection.findOne({ username });
     if (user && user.password === password) {
         req.session.username = username;
@@ -31,8 +30,6 @@ app.post('/login', async (req, res) => {
     }
 })
 app.use(express.static('public'));
-
-const PORT = 3000;
 
 // simula bd com users e passwords
 //let users = {
@@ -48,6 +45,7 @@ app.get('/protegido', estaAutenticado, (req, res) => {
         res.send("olá " + username);
 });
 
+// middleware de autenticacao
 function estaAutenticado(req, res, next) {
     const username = req.session.username;
     if (username) {
@@ -57,6 +55,7 @@ function estaAutenticado(req, res, next) {
     }
 }
 
+// rota que usa middleware
 app.get('/segredo', estaAutenticado, (req, res) => {
     res.send("qualqeur coisa")
 });
@@ -76,6 +75,12 @@ app.post('/login',  async (req, res) => {
 });
 
 const client = new MongoClient(process.env.MONGOURI);
+
+
+
+// global vars to store db connecction
+let usersCollection;
+let db;
 
 async function startServer() {
     await client.connect();
