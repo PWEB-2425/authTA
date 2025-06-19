@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa de Imagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #imagens {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .img-container {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        img {
+            max-width: 200px;
+            max-height: 150px;
+            display: block;
+        }
+    </style>
+    <script src="pesquisa.js" defer></script>
+</head>
+
+<body>
+    <h1>Pesquisa de Imagens</h1>
+    <form id="formPesquisa">
+        <input type="text" id="conceito" placeholder="Digite um conceito..." required>
+        <button type="submit">Pesquisar</button>
+    </form>
+    <div id="imagens"></div>
+</body>
+
+</html>
